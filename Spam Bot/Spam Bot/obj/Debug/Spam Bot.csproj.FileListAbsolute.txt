@@ -1,0 +1,18 @@
+C:\Users\z.konstantin\Documents\Visual Studio 2013\Projects\Spam Bot\Spam Bot\obj\Debug\Spam Bot.csprojResolveAssemblyReference.cache
+C:\Users\z.konstantin\Documents\Visual Studio 2013\Projects\Spam Bot\Spam Bot\obj\Debug\Spam_Bot.Form1.resources
+C:\Users\z.konstantin\Documents\Visual Studio 2013\Projects\Spam Bot\Spam Bot\obj\Debug\Spam_Bot.Properties.Resources.resources
+C:\Users\z.konstantin\Documents\Visual Studio 2013\Projects\Spam Bot\Spam Bot\obj\Debug\Spam Bot.csproj.GenerateResource.Cache
+C:\Users\z.konstantin\Documents\Visual Studio 2013\Projects\Spam Bot\Spam Bot\bin\Debug\Email Messenger.exe.config
+C:\Users\z.konstantin\Documents\Visual Studio 2013\Projects\Spam Bot\Spam Bot\bin\Debug\Email Messenger.exe
+C:\Users\z.konstantin\Documents\Visual Studio 2013\Projects\Spam Bot\Spam Bot\bin\Debug\Email Messenger.pdb
+C:\Users\z.konstantin\Documents\Visual Studio 2013\Projects\Spam Bot\Spam Bot\obj\Debug\Email Messenger.exe
+C:\Users\z.konstantin\Documents\Visual Studio 2013\Projects\Spam Bot\Spam Bot\obj\Debug\Email Messenger.pdb
+E:\Develop\Google\C#\Spam Bot\Spam Bot\bin\Debug\Email Messenger.exe.config
+E:\Develop\Google\C#\Spam Bot\Spam Bot\obj\Debug\Email Messenger.exe
+E:\Develop\Google\C#\Spam Bot\Spam Bot\obj\Debug\Email Messenger.pdb
+E:\Develop\Google\C#\Spam Bot\Spam Bot\bin\Debug\Email Messenger.exe
+E:\Develop\Google\C#\Spam Bot\Spam Bot\bin\Debug\Email Messenger.pdb
+E:\Develop\Google\C#\Spam Bot\Spam Bot\obj\Debug\Spam Bot.csprojResolveAssemblyReference.cache
+E:\Develop\Google\C#\Spam Bot\Spam Bot\obj\Debug\Spam_Bot.Form1.resources
+E:\Develop\Google\C#\Spam Bot\Spam Bot\obj\Debug\Spam_Bot.Properties.Resources.resources
+E:\Develop\Google\C#\Spam Bot\Spam Bot\obj\Debug\Spam Bot.csproj.GenerateResource.Cache

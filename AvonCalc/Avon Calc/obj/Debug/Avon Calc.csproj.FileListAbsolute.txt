@@ -1,0 +1,25 @@
+D:\Develop\OneDrive\C#\Avon Calc\Avon Calc\bin\Debug\Avon Calc.exe
+D:\Develop\OneDrive\C#\Avon Calc\Avon Calc\bin\Debug\Avon Calc.pdb
+D:\Develop\OneDrive\C#\Avon Calc\Avon Calc\obj\Debug\Avon Calc.csprojResolveAssemblyReference.cache
+D:\Develop\OneDrive\C#\Avon Calc\Avon Calc\obj\Debug\Avon_Calc.Form1.resources
+D:\Develop\OneDrive\C#\Avon Calc\Avon Calc\obj\Debug\Avon_Calc.Properties.Resources.resources
+D:\Develop\OneDrive\C#\Avon Calc\Avon Calc\obj\Debug\Avon Calc.csproj.GenerateResource.Cache
+D:\Develop\OneDrive\C#\Avon Calc\Avon Calc\obj\Debug\Avon Calc.exe
+D:\Develop\OneDrive\C#\Avon Calc\Avon Calc\obj\Debug\Avon Calc.pdb
+C:\Users\z.konstantin\Documents\Visual Studio 2013\Projects\AvonCalc\Avon Calc\obj\Debug\Avon Calc.exe
+C:\Users\z.konstantin\Documents\Visual Studio 2013\Projects\AvonCalc\Avon Calc\obj\Debug\Avon Calc.pdb
+C:\Users\z.konstantin\Documents\Visual Studio 2013\Projects\AvonCalc\Avon Calc\bin\Debug\Avon Calc.exe
+C:\Users\z.konstantin\Documents\Visual Studio 2013\Projects\AvonCalc\Avon Calc\bin\Debug\Avon Calc.pdb
+C:\Users\z.konstantin\Documents\Visual Studio 2013\Projects\AvonCalc\Avon Calc\obj\Debug\Avon Calc.csprojResolveAssemblyReference.cache
+C:\Users\z.konstantin\Documents\Visual Studio 2013\Projects\AvonCalc\Avon Calc\obj\Debug\Avon_Calc.Form1.resources
+C:\Users\z.konstantin\Documents\Visual Studio 2013\Projects\AvonCalc\Avon Calc\obj\Debug\Avon_Calc.Properties.Resources.resources
+C:\Users\z.konstantin\Documents\Visual Studio 2013\Projects\AvonCalc\Avon Calc\obj\Debug\Avon Calc.csproj.GenerateResource.Cache
+E:\Develop\Google\C#\AvonCalc\Avon Calc\obj\Debug\Avon Calc.exe
+E:\Develop\Google\C#\AvonCalc\Avon Calc\obj\Debug\Avon Calc.pdb
+E:\Develop\Google\C#\AvonCalc\Avon Calc\bin\Debug\Avon Calc.exe
+E:\Develop\Google\C#\AvonCalc\Avon Calc\bin\Debug\Avon Calc.pdb
+E:\Develop\Google\C#\AvonCalc\Avon Calc\obj\Debug\Avon Calc.csprojResolveAssemblyReference.cache
+E:\Develop\Google\C#\AvonCalc\Avon Calc\obj\Debug\Avon_Calc.Form1.resources
+E:\Develop\Google\C#\AvonCalc\Avon Calc\obj\Debug\Avon_Calc.Properties.Resources.resources
+E:\Develop\Google\C#\AvonCalc\Avon Calc\obj\Debug\Avon Calc.csproj.GenerateResource.Cache
+E:\Develop\Google\C#\AvonCalc\Avon Calc\obj\Debug\Avon_Calc.Form2.resources
