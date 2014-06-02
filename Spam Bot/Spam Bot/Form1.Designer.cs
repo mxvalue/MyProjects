@@ -1,5 +1,6 @@
 ﻿namespace Email_Messenger
 {
+    test
     partial class Form1
     {
         /// <summary>
