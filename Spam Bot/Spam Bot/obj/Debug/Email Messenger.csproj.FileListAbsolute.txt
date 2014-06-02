@@ -15,3 +15,12 @@ E:\Develop\MyProjects\Spam Bot\Spam Bot\obj\Debug\Email Messenger.csprojResolveA
 E:\Develop\MyProjects\Spam Bot\Spam Bot\obj\Debug\Email_Messenger.Form1.resources
 E:\Develop\MyProjects\Spam Bot\Spam Bot\obj\Debug\Email_Messenger.Properties.Resources.resources
 E:\Develop\MyProjects\Spam Bot\Spam Bot\obj\Debug\Email Messenger.csproj.GenerateResource.Cache
+C:\Users\z.konstantin\Documents\MyProjects\Spam Bot\Spam Bot\bin\Debug\Email Messenger.exe.config
+C:\Users\z.konstantin\Documents\MyProjects\Spam Bot\Spam Bot\obj\Debug\Email Messenger.exe
+C:\Users\z.konstantin\Documents\MyProjects\Spam Bot\Spam Bot\obj\Debug\Email Messenger.pdb
+C:\Users\z.konstantin\Documents\MyProjects\Spam Bot\Spam Bot\bin\Debug\Email Messenger.exe
+C:\Users\z.konstantin\Documents\MyProjects\Spam Bot\Spam Bot\bin\Debug\Email Messenger.pdb
+C:\Users\z.konstantin\Documents\MyProjects\Spam Bot\Spam Bot\obj\Debug\Email Messenger.csprojResolveAssemblyReference.cache
+C:\Users\z.konstantin\Documents\MyProjects\Spam Bot\Spam Bot\obj\Debug\Email_Messenger.Form1.resources
+C:\Users\z.konstantin\Documents\MyProjects\Spam Bot\Spam Bot\obj\Debug\Email_Messenger.Properties.Resources.resources
+C:\Users\z.konstantin\Documents\MyProjects\Spam Bot\Spam Bot\obj\Debug\Email Messenger.csproj.GenerateResource.Cache
