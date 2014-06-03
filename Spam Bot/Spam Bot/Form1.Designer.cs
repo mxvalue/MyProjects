@@ -50,6 +50,7 @@
             this.messageSent = new System.Windows.Forms.Label();
             this.countOfMessage = new System.Windows.Forms.NumericUpDown();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -75,7 +76,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(156, 20);
             this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "c.sharp@inbox.ru";
             // 
             // textBox2
             // 
@@ -84,7 +84,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(156, 20);
             this.textBox2.TabIndex = 5;
-            this.textBox2.Text = "123";
             // 
             // button1
             // 
@@ -121,7 +120,7 @@
             this.менюToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(877, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(762, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -140,14 +139,14 @@
             this.сменитьПользователяToolStripMenuItem.Name = "сменитьПользователяToolStripMenuItem";
             this.сменитьПользователяToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.сменитьПользователяToolStripMenuItem.Text = "Сменить пользователя";
-            this.сменитьПользователяToolStripMenuItem.Click += new System.EventHandler(this.сменитьПользователяToolStripMenuItem_Click);
+            this.сменитьПользователяToolStripMenuItem.Click += new System.EventHandler(this.AnotherUser);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(200, 22);
             this.toolStripMenuItem2.Text = "Спам-бот режим";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.SpamBotMode);
             // 
             // label3
             // 
@@ -165,7 +164,7 @@
             this.bodyTextBox.Name = "bodyTextBox";
             this.bodyTextBox.Size = new System.Drawing.Size(369, 171);
             this.bodyTextBox.TabIndex = 6;
-            this.bodyTextBox.Text = "123";
+            this.bodyTextBox.Text = "";
             // 
             // button2
             // 
@@ -268,7 +267,7 @@
             this.countOfMessage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.countOfMessage.Location = new System.Drawing.Point(279, 19);
             this.countOfMessage.Minimum = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});
@@ -276,7 +275,7 @@
             this.countOfMessage.Size = new System.Drawing.Size(68, 20);
             this.countOfMessage.TabIndex = 9;
             this.countOfMessage.Value = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});
@@ -284,6 +283,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.label5);
@@ -291,10 +291,18 @@
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.textBox4);
             this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Location = new System.Drawing.Point(381, 41);
+            this.panel2.Location = new System.Drawing.Point(0, 41);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(381, 361);
             this.panel2.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(59, 125);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 13);
+            this.label6.TabIndex = 7;
             // 
             // pictureBox1
             // 
@@ -310,7 +318,9 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "@mail.ru"});
+            "@mail.ru",
+            "@yandex.ru",
+            "@gmail.com"});
             this.comboBox1.Location = new System.Drawing.Point(234, 39);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(83, 21);
@@ -352,10 +362,9 @@
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox4.Location = new System.Drawing.Point(62, 91);
             this.textBox4.Name = "textBox4";
-            this.textBox4.PasswordChar = '*';
             this.textBox4.Size = new System.Drawing.Size(166, 20);
             this.textBox4.TabIndex = 2;
-            this.textBox4.Text = "123qweasd";
+            this.textBox4.UseSystemPasswordChar = true;
             this.textBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter);
             // 
             // textBox3
@@ -365,7 +374,6 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(166, 20);
             this.textBox3.TabIndex = 0;
-            this.textBox3.Text = "knb_test";
             this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter);
             // 
             // openFileDialog1
@@ -376,11 +384,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 553);
+            this.ClientSize = new System.Drawing.Size(381, 401);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximumSize = new System.Drawing.Size(397, 439);
             this.MinimumSize = new System.Drawing.Size(397, 439);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -432,6 +442,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label label6;
     }
 }
 
