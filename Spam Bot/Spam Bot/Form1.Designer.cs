@@ -47,7 +47,6 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.messageSent = new System.Windows.Forms.Label();
             this.countOfMessage = new System.Windows.Forms.NumericUpDown();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -120,7 +119,7 @@
             this.менюToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(762, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(381, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -184,7 +183,6 @@
             this.panel1.Controls.Add(this.progressBar1);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.messageSent);
             this.panel1.Controls.Add(this.countOfMessage);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.textBox1);
@@ -252,16 +250,6 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.AttachFile);
             // 
-            // messageSent
-            // 
-            this.messageSent.AutoSize = true;
-            this.messageSent.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.messageSent.ForeColor = System.Drawing.Color.LimeGreen;
-            this.messageSent.Location = new System.Drawing.Point(181, 56);
-            this.messageSent.Name = "messageSent";
-            this.messageSent.Size = new System.Drawing.Size(0, 25);
-            this.messageSent.TabIndex = 11;
-            // 
             // countOfMessage
             // 
             this.countOfMessage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -291,7 +279,7 @@
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.textBox4);
             this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Location = new System.Drawing.Point(0, 41);
+            this.panel2.Location = new System.Drawing.Point(0, 38);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(381, 361);
             this.panel2.TabIndex = 11;
@@ -434,7 +422,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.NumericUpDown countOfMessage;
-        private System.Windows.Forms.Label messageSent;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label fileNameLabel;

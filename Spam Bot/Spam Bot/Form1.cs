@@ -107,7 +107,7 @@ namespace Email_Messenger
                 client.Send(mess);
                 if (idMode == 0)
                 {
-                    messageSent.Text = "Message Sent!!!";
+                    MessageBox.Show("Сообщение отправлено");
                 }
             }
             catch (FormatException)
@@ -128,7 +128,6 @@ namespace Email_Messenger
         public void SpamBotMessages()
         {
             CheckForIllegalCrossThreadCalls = false;
-            progressBar1.Visible = true;
             progressBar1.Minimum = 0;
             progressBar1.Maximum = (int)countOfMessage.Value;
             progressBar1.Value = 1;
@@ -139,8 +138,8 @@ namespace Email_Messenger
                 progressBar1.PerformStep();
                 Thread.Sleep(500);
             }
-            progressBar1.Visible = false;
-            messageSent.Text = "Message Sent!!!";
+            progressBar1.Value = 0;
+            MessageBox.Show("Сообщения отправлены");
         }
         private void Enter(object sender, KeyEventArgs e)
         {
@@ -161,7 +160,6 @@ namespace Email_Messenger
         }
         private void SendButton(object sender, EventArgs e)
         {
-            messageSent.Text = "";
             if (textBox1.Text != "" && textBox2.Text != "")
             {
                 if (idMode == 0)
@@ -182,7 +180,6 @@ namespace Email_Messenger
         private void ClearButton(object sender, EventArgs e)
         {
             bodyTextBox.Clear();
-            messageSent.Text = "";
             countOfMessage.Value = 2;
             idFile = 0;
             fileNameLabel.Text = "";
@@ -210,14 +207,13 @@ namespace Email_Messenger
             if (idMode == 0)
             {
                 idMode = 1;
-                messageSent.Text = "";
                 countOfMessage.Visible = true;
                 label7.Visible = true;
+                progressBar1.Visible = true;
             }
             else
             {
                 idMode = 0;
-                messageSent.Text = "";
                 countOfMessage.Visible = false;
                 label7.Visible = false;
                 progressBar1.Visible = false;
