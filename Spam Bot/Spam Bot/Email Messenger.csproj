@@ -47,7 +47,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>mail.ico</ApplicationIcon>
+    <ApplicationIcon>e_mail.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -97,6 +97,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="e_mail.ico" />
     <Content Include="mail.ico" />
   </ItemGroup>
   <ItemGroup>

